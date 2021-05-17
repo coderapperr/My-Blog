@@ -39,13 +39,13 @@
             <nav aria-label="Page navigation example">
               <ul class="pagination pagination-template d-flex justify-content-center">
                 {% if post_list.has_previous %}
-                <li class="page-item"><a href="?{{ page_request_var }}={{ post_list.previous_page_number }}" class="page-link"> <i class="fa fa-angle-left"></i></a></li>
-                <li class="page-item"><a href="?{{ page_request_var }}={{ post_list.previous_page_number }}" class="page-link">{{ post_list.number|add:"-1" }}</a></li>
+                <li class="page-item"><a href="?{{ page_request_var }}={{ post_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" class="page-link"> <i class="fa fa-angle-left"></i></a></li>
+                <li class="page-item"><a href="?{{ page_request_var }}={{ post_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" class="page-link">{{ post_list.number|add:"-1" }}</a></li>
                 {% endif %}
-                <li class="page-item"><a href="?{{ page_request_var }}={{ post_list.number }}" class="page-link active">{{ post_list.number }}</a></li>
+                <li class="page-item"><a href="?{{ page_request_var }}={{ post_list.number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" class="page-link active">{{ post_list.number }}</a></li>
                 {% if post_list.has_next %}
-                <li class="page-item"><a href="?{{ page_request_var }}={{ post_list.next_page_number }}" class="page-link">{{ post_list.number|add:"1" }}</a></li>
-                <li class="page-item"><a href="?{{ page_request_var }}={{ post_list.next_page_number }}" class="page-link"> <i class="fa fa-angle-right"></i></a></li>
+                <li class="page-item"><a href="?{{ page_request_var }}={{ post_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" class="page-link">{{ post_list.number|add:"1" }}</a></li>
+                <li class="page-item"><a href="?{{ page_request_var }}={{ post_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" class="page-link"> <i class="fa fa-angle-right"></i></a></li>
                 {% endif %}
               </ul>
             </nav>
