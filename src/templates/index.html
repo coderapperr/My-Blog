@@ -40,7 +40,7 @@
 
                   <div class="category">
                     {% for cat in obj.categories.all %}
-                    <a href="#">{{ cat }}</a>
+                    <a href="{% url 'search' %}?q={{ cat }}">{{ cat }}</a>
                     {% endfor %}
                   </div>
                   <a href="{{ obj.get_absolute_url }}">
@@ -90,7 +90,7 @@
                 <div class="date">{{ obj.timestamp | date:"d M Y" }}</div>
                 <div class="category">
                   {% for cat in obj.categories.all %}
-                  <a href="#">{{ cat }}</a>
+                  <a href="{% url 'search' %}?q={{ cat }}">{{ cat }}</a>
                   {% endfor %}
                 </div>
               </div><a href="{{ obj.get_absolute_url }}">
