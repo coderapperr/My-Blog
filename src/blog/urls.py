@@ -12,6 +12,7 @@ urlpatterns = [
     path('search/', search, name='search'),
     path('post/<id>/', post, name='post-detail'),
     path('tinymce/', include('tinymce.urls')),
+    path('accounts/', include('allauth.urls')),
 ]
 
 if settings.DEBUG:
