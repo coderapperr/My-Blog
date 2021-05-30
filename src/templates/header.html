@@ -31,8 +31,17 @@
             <li class="nav-item"><a href="/blog" class="nav-link active ">Blog</a>
             </li>
             {% if request.user.is_staff %}
-            <li class="nav-item"><a href="/admin" class="nav-link ">Admin</a>
+            <li class="nav-item"><a href="/MysEcretAdMiN" class="nav-link ">Admin</a>
             </li>
+            {% endif %}
+            {% if not request.user.is_authenticated %}
+            <li class="nav-item"><a href="{% url 'account_login' %}" class="nav-link ">Sign In</a>
+            {% endif %}
+            {% if not request.user.is_authenticated %}
+            <li class="nav-item"><a href="{% url 'account_signup' %}" class="nav-link ">Sign Up</a>
+            {% endif %}
+            {% if request.user.is_authenticated %}
+            <li class="nav-item"><a href="{% url 'account_logout' %}" class="nav-link ">Log Out</a>
             {% endif %}
             <li class="nav-item"><a href="#" class="nav-link ">Contact</a>
             </li>
